@@ -1,0 +1,68 @@
+{
+  "incident_id": "INC-2026-NVIDIA-ROCE-089",
+  "timestamp": "2026-09-02T10:15:00Z",
+  "service": "meta-llama3-70b-instruct",
+  "data_classification": "RESTRICTED",
+  "target_region": "us-gov-east",
+  "fips_mode": true,
+  "metrics": {
+    "p95_ttft_ms": 3850.0,
+    "p95_itl_ms": 42.0,
+    "measured_rps": 180.0,
+    "queue_depth": 340,
+    "kv_cache_fraction": 0.91,
+    "nim_ready_replicas": 4,
+    "nim_desired_replicas": 8,
+    "pfc_pause_duration_ms": 142.5,
+    "packet_loss_rate": 0.048,
+    "active_gpu_fraction": 0.94,
+    "stranded_gpu_hours": 128.0,
+    "gpu_hour_cost_usd": 4.50
+  },
+  "financials": {
+    "hourly_revenue_at_risk_usd": 18500.0,
+    "estimated_outage_hours": 2.0,
+    "estimated_action_cost_usd": 120.0,
+    "requires_cloud_burst": false
+  },
+  "topology_nodes": [
+    {
+      "id": "dgx-node-01",
+      "layer": "physical",
+      "kind": "DGX-H100",
+      "properties": {"gpus": 8, "region": "us-gov-east", "fips_mode": true}
+    },
+    {
+      "id": "dgx-node-02",
+      "layer": "physical",
+      "kind": "DGX-H100",
+      "properties": {"gpus": 8, "region": "us-gov-east", "fips_mode": true}
+    },
+    {
+      "id": "leaf-switch-01",
+      "layer": "fabric",
+      "kind": "Spectrum-4",
+      "properties": {"roce_enabled": true, "pfc_priority": 3, "mtu": 9000}
+    },
+    {
+      "id": "nim-pod-llama3-01",
+      "layer": "workload",
+      "kind": "NIMPod",
+      "properties": {"model": "meta/llama-3.3-70b-instruct", "data_classification": "RESTRICTED"}
+    }
+  ],
+  "topology_edges": [
+    {
+      "source": "nim-pod-llama3-01",
+      "target": "dgx-node-01",
+      "relation": "SCHEDULED_ON",
+      "properties": {"gpu_allocation": 8}
+    },
+    {
+      "source": "dgx-node-01",
+      "target": "leaf-switch-01",
+      "relation": "ROUTES_THROUGH",
+      "properties": {"interface": "mlx5_0", "status": "CONGESTED"}
+    }
+  ]
+}
