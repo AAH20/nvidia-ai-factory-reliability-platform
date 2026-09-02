@@ -15,3 +15,7 @@ jobs:
       - run: PYTHONPATH=src python -m unittest discover -s tests -v
       - run: PYTHONPATH=src python -m ai_factory_reliability.cli examples/synthetic-ai-factory-incident.json > /tmp/proof.json
       - run: python -m json.tool /tmp/proof.json > /dev/null
+      - run: PYTHONPATH=src python -m ai_factory_reliability.cli self-heal examples/roce-pfc-deadlock-llama3.json > /tmp/self_heal.json
+      - run: python -m json.tool /tmp/self_heal.json > /dev/null
+      - run: PYTHONPATH=src python -m ai_factory_reliability.cli export-oscal > /tmp/oscal.json
+      - run: python -m json.tool /tmp/oscal.json > /dev/null
