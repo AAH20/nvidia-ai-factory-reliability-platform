@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "authority": {
+    "paperclip": "programs, budgets, workload priorities and assignments",
+    "openclaw-compatible-gateway": "persistent operator interface, schedules and skills",
+    "langgraph": "sole durable workflow state owner",
+    "crewai": "bounded specialist collaboration",
+    "langchain": "model, retriever and tool adapters",
+    "nemo-agent-toolkit": "profiling, evaluation and observability",
+    "temporal-graphrag": "topology and incident context",
+    "policy-engine": "authorization"
+  },
+  "hard_rule": "No model or agent can approve its own infrastructure change."
+}

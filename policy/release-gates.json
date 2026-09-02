@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "simulation_eligibility": {
+    "verified_observations": true,
+    "unauthorized_actions": 0,
+    "critical_evaluation_pass_rate": 1.0,
+    "policy_pass_rate": 1.0,
+    "minimum_dependency_coverage": 0.95
+  },
+  "production_requirements": ["isolated-simulation", "independent-holdout", "explicit-approval", "canary", "slo-verification", "tested-rollback"]
+}

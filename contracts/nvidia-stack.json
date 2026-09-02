@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "status": "contract-only",
+  "nim": {
+    "endpoints": ["/v1/chat/completions", "/v1/models", "/v1/health/live", "/v1/health/ready", "/v1/metrics"],
+    "metrics": ["request_latency", "throughput", "queue_depth", "token_count", "gpu_utilization"]
+  },
+  "kubernetes": ["NVIDIA GPU Operator", "NVIDIA NIM Operator", "DCGM Exporter", "Network Operator", "device plugin"],
+  "cluster": ["NVIDIA Base Command Manager", "Slurm", "Kubernetes"],
+  "fabric": ["NVLink", "NVSwitch", "InfiniBand", "RoCEv2", "RDMA", "NCCL"]
+}

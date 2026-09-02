@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0",
+  "facts": ["inference_request", "gpu_interval", "fabric_interval", "workload", "incident", "change", "evaluation", "remediation", "cost", "business_outcome"],
+  "dimensions": ["time", "tenant", "cluster", "cloud", "region", "model", "precision", "nim_profile", "gpu", "node", "switch", "link", "workload", "customer", "agent", "tool"],
+  "measures": ["ai_factory_yield", "gpu_allocation_rate", "active_gpu_fraction", "stranded_gpu_hours", "tokens_per_gpu_hour", "ttft_p95", "itl_p95", "tokens_per_second", "requests_per_second", "queue_depth", "kv_cache_utilization", "nim_readiness_rate", "model_cache_hit_rate", "fabric_utilization", "packet_loss", "change_failure_rate", "mttr", "rollback_success_rate", "evaluation_pass_rate", "unauthorized_actions", "cost_per_request", "revenue_per_gpu_hour", "verified_net_value", "roi"],
+  "evidence_rule": "Only post-action verified outcomes may be reported as realized revenue, savings or value."
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "status": "contract-only",
+  "iac": ["Terraform", "OpenTofu", "Bicep", "CloudFormation", "Pulumi", "Helm", "Kustomize"],
+  "network": ["Ansible", "Nornir", "Netmiko", "NAPALM", "Batfish", "pyATS", "containerlab", "gNMI", "NETCONF", "RESTCONF"],
+  "configuration": ["Ansible", "Chef", "Puppet"],
+  "compliance": ["OPA", "Conftest", "Checkov", "InSpec", "Kyverno", "Gatekeeper", "Azure Policy", "AWS Config", "Google Organization Policy"],
+  "promotion": ["plan", "static-validation", "digital-twin", "holdout-evaluation", "human-approval", "canary", "verification", "expansion"]
+}
